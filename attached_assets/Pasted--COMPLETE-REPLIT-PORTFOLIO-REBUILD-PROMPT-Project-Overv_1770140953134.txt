@@ -1,0 +1,863 @@
+# COMPLETE REPLIT PORTFOLIO REBUILD PROMPT
+
+## Project Overview
+Rebuild my existing portfolio website (currently at designer-portfolio.replit.app) into a world-class, AI-Native Product Designer portfolio that showcases engineering-grade design capabilities. This portfolio should position me as a **Behavior & Systems Architect** who designs probabilistic, agentic AI systems—not just traditional interfaces.
+
+***
+
+## Technical Requirements
+
+### Framework & Stack
+- **Framework:** React with Next.js (or modern React with Vite)
+- **Styling:** Tailwind CSS + custom CSS variables for design system
+- **Animations:** Framer Motion for smooth interactions
+- **Icons:** Lucide React or Heroicons
+- **Performance:** Code splitting, lazy loading, optimized images (WebP/AVIF)
+- **Responsiveness:** Mobile-first approach (breakpoints: 375px, 768px, 1024px, 1440px)
+- **Accessibility:** WCAG AA compliant (contrast ratios, alt text, keyboard navigation, ARIA labels)
+
+### Performance Targets
+- Lighthouse score: 90+ on mobile and desktop
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+- Time to Interactive: < 3.5s
+
+***
+
+## Design System
+
+### Color Palette
+**Light Mode:**
+- Background: `#FAFAF9` (warm off-white)
+- Surface: `#FFFFFF` (pure white cards)
+- Text Primary: `#1A1A1A` (near black)
+- Text Secondary: `#6B7280` (gray-500)
+- Accent Primary: `#14B8A6` (teal-500 - represents AI/tech)
+- Accent Hover: `#0D9488` (teal-600)
+- Border: `#E5E7EB` (gray-200)
+
+**Dark Mode:**
+- Background: `#0A0A0A` (true black)
+- Surface: `#1A1A1A` (dark gray cards)
+- Text Primary: `#F5F5F5` (off-white)
+- Text Secondary: `#9CA3AF` (gray-400)
+- Accent Primary: `#2DD4BF` (teal-400)
+- Accent Hover: `#14B8A6` (teal-500)
+- Border: `#374151` (gray-700)
+
+### Typography
+- **Font Family:** Inter (primary), Space Grotesk (headings alternative), JetBrains Mono (code)
+- **Scale:**
+  - H1: `clamp(2.5rem, 5vw, 3.5rem)` - Bold (700)
+  - H2: `clamp(2rem, 4vw, 2.75rem)` - Semibold (600)
+  - H3: `clamp(1.5rem, 3vw, 2rem)` - Semibold (600)
+  - H4: `clamp(1.25rem, 2.5vw, 1.5rem)` - Medium (500)
+  - Body: `1rem (16px)` - Regular (400)
+  - Small: `0.875rem (14px)` - Regular (400)
+- **Line Height:** 1.6 for body text, 1.2 for headings
+- **Letter Spacing:** -0.02em for headings
+
+### Spacing & Layout
+- **Grid System:** 8px base unit
+- **Container Max Width:** 1200px
+- **Section Padding:** 120px vertical (desktop), 80px (tablet), 60px (mobile)
+- **Card Padding:** 32px (desktop), 24px (mobile)
+- **Gaps:** 24px between cards, 16px between elements
+
+### Shadows & Effects
+- **Card Shadow:** `0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03)`
+- **Card Hover:** `0 4px 6px rgba(0,0,0,0.07), 0 12px 24px rgba(0,0,0,0.05)`
+- **Border Radius:** 12px (cards), 8px (buttons), 6px (inputs)
+
+***
+
+## Website Structure & Content
+
+### Navigation (Sticky Header)
+- Logo/Name: "Arun Bhisne" (left)
+- Nav Links: About | Work | Skills | Process | Contact (center/right)
+- Dark Mode Toggle (right)
+- Mobile: Hamburger menu with smooth slide-in drawer
+- Smooth scroll to sections with offset for fixed header
+
+***
+
+### Section 1: Hero Section
+
+**Layout:** Full viewport height, centered content with subtle gradient background
+
+**Content:**
+```
+<Animated fade-in sequence>
+
+[Small label/badge]: "AI-Native Product Designer"
+
+<H1 - Main Headline>
+I Don't Design Interfaces.
+I Architect AI Behaviors.
+
+<Subtitle - Secondary Text>
+Designing probabilistic, agentic systems that are transparent, steerable, and safe in production. Specializing in agent topologies, system prompts, evaluation frameworks, and generative UI schemas.
+
+<CTA Buttons - Horizontal stack>
+[Primary Button]: "View My Work" (scroll to projects)
+[Secondary Button]: "Download Framework" (links to PDF)
+[Tertiary Link]: "LinkedIn" | "GitHub" | "Kaggle" (icon links)
+
+</Animated fade-in sequence>
+```
+
+**Visual Elements:**
+- Animated abstract background: Subtle grid pattern with floating nodes/connections representing agent networks
+- Gradient overlay: Teal/cyan accent fading to background
+- Scroll indicator: Animated down arrow at bottom
+
+***
+
+### Section 2: About / Professional Positioning
+
+**Layout:** Two-column on desktop (60/40 split), stacked on mobile
+
+**Left Column - Main Content:**
+```
+<H2>The AI-Native Product Designer</H2>
+
+<Body Text - 3 short paragraphs>
+
+I'm a behavior and systems architect who designs what AI does when we're not looking. Unlike traditional UX designers who create static interfaces, I architect autonomous systems by specifying how models, agents, and tools behave under real-world uncertainty.
+
+My work spans **agent topologies** (orchestrating multi-agent workflows), **system prompts** (machine-addressable behavior contracts), **evaluation frameworks** (golden datasets and LLM-as-a-Judge rubrics), and **Glass Box UX** (reasoning traces and provenance visualization).
+
+I bridge design thinking with engineering depth—owning specs, diagrams, JSON schemas, and eval pipelines alongside traditional UX deliverables. My goal: making AI systems intelligible, steerable, evaluable, and safe.
+
+<Pull Quote - Highlighted>
+"We're no longer designing for the machine—we're designing for what the machine does when we're not looking."
+— Robb Wilson, AI Researcher
+```
+
+**Right Column - Quick Stats/Highlights:**
+```
+<Stats Cards - Vertical stack>
+
+📊 5 Core Competencies
+Probabilistic Behavior | Orchestration | System Prompting | Evaluation | Observability
+
+🎓 Specialized Training
+Advent of Agents, Deeplearning.AI Agentic AI, IIT Madras UI/UX with Agentic AI
+
+🛠️ Tech Stack
+Python, LangGraph, Vercel AI SDK, Gradio, LangChain, Google AI Studio, Kaggle
+
+🔗 Active Platforms
+GitHub (agent projects) | Kaggle (AI notebooks) | LinkedIn (thought leadership)
+```
+
+**Interactive Element:**
+- Comparison Slider or Toggle: "Traditional UX Designer vs. AI-Native Product Designer"
+  - Side-by-side comparison table
+  - Smooth reveal animation on scroll
+
+***
+
+### Section 3: The 5 Core Domains (Competencies)
+
+**Layout:** Grid of 5 interactive cards (3 columns desktop, 2 tablet, 1 mobile)
+
+**Card Design:**
+- Icon representing each domain (top)
+- Domain title (H3)
+- 2-sentence description
+- "Key Artifacts" tag list
+- Hover effect: Lift with shadow, subtle accent border
+- Click/tap: Expand to show detailed description + example artifact
+
+**Domain Cards Content:**
+
+```
+Card 1: Probabilistic Behavior & Failure Design
+Icon: 🎲 or branching tree diagram
+Description: Designing for distributions of outputs, not single "happy paths." Mapping failure modes (hallucinations, tool mismatches, retrieval failures) and specifying fallback strategies, confidence thresholds, and human escalation points.
+Key Artifacts: Uncertainty communication specs, Failure-mode trees, Regeneration policies, Logprob thresholds
+
+---
+
+Card 2: Orchestration & Agent Topologies
+Icon: 🔀 or network node diagram
+Description: Architecting multi-agent systems with sequential, hierarchical, or parallel topologies. Specifying router logic, autonomy matrices, and state machines that determine how agents collaborate to fulfill user intents.
+Key Artifacts: Agent topology diagrams, Router decision tables, Autonomy matrices, Orchestration state machines
+
+---
+
+Card 3: System Prompting & Generative UI
+Icon: 📝 or code brackets
+Description: Authoring system prompts as machine-addressable contracts and defining component ontologies with strict JSON Schemas. Designing generative UI where agents emit structured UI state that maps to renderable components.
+Key Artifacts: System prompts, Tool definitions, Component ontologies, JSON Schemas, Generative UI state specs
+
+---
+
+Card 4: Evaluation Design & Behavioral Metrics
+Icon: 📈 or checklist
+Description: Creating Golden Datasets (50-200+ examples) and evaluation suites that measure regeneration rate, override rate, safety violations, and task-specific quality using LLM-as-a-Judge and rule-based scoring.
+Key Artifacts: Golden Datasets, Eval rubrics, Behavioral metrics, LLM-as-a-Judge instructions, Feedback mechanisms
+
+---
+
+Card 5: Observability & Reasoning Traces
+Icon: 🔍 or layered window
+Description: Designing Glass Box experiences that reveal model reasoning at appropriate abstraction levels. Specifying trace schemas, provenance labels, and developer debugging interfaces aligned with OpenTelemetry-style spans.
+Key Artifacts: Trace schemas, Glass Box UI specs, Provenance labeling rules, Developer debugging views, Explainability components
+```
+
+***
+
+### Section 4: Portfolio Projects (Case Studies)
+
+**Layout:** Large cards with alternating image-left/text-right layout (desktop), stacked (mobile)
+
+**Each Project Card Includes:**
+- Project thumbnail/hero image (left or right, alternating)
+- Project title (H3)
+- Project type badge (e.g., "Agentic System", "Multi-Agent Workflow")
+- 3-sentence description
+- Tech stack chips (Python, LangChain, Gradio, etc.)
+- Key outcomes (2-3 bullet points with icons)
+- CTA: "View Case Study" button (links to detail page or expands inline)
+
+**Project 1: ConsciousCart - AI Agent for Sustainable Product Analysis**
+```
+Thumbnail: Mockup of product scanner interface with sustainability score overlay
+
+Description:
+Built an AI agent system that scans product barcodes, retrieves sustainability data, and provides actionable recommendations. The system uses a multi-agent architecture (scanner → analyzer → recommendation engine) with custom evaluation metrics for accuracy and user trust.
+
+Tech Stack: Python | LangChain | Google AI Studio | Gradio | Vector DB
+
+Key Outcomes:
+✓ Architected 3-agent sequential topology with router logic
+✓ Designed evaluation framework with 150+ golden dataset examples
+✓ Achieved 87% recommendation accuracy with < 15% regeneration rate
+
+[View Case Study] → Expands to show:
+- Agent topology diagram (interactive visualization)
+- System prompt examples (syntax-highlighted)
+- Evaluation dashboard screenshot
+- Lessons learned section
+```
+
+**Project 2: Multi-Agent Customer Service System (Thesis Project)**
+```
+Thumbnail: Glass Box UI showing agent reasoning trace
+
+Description:
+Designed a hierarchical agent system for customer support with intent classification, dynamic routing, and human-in-the-loop confirmations for high-stakes actions. Focused on transparency through reasoning traces and failure recovery patterns.
+
+Tech Stack: Python | LangGraph | FastAPI | React | OpenTelemetry
+
+Key Outcomes:
+✓ Specified planner-worker hierarchy with 5 specialized worker agents
+✓ Designed Glass Box UI revealing step-by-step reasoning to users
+✓ Created failure-mode trees with explicit escalation triggers
+
+[View Case Study]
+```
+
+**Project 3: Generative UI Co-Pilot**
+```
+Thumbnail: Animated GIF showing streaming UI generation
+
+Description:
+Prototyped an agent that generates task-specific UI dynamically based on user intent, using a component ontology with strict JSON Schemas. Implemented streaming interactions and memory-driven context chips for personalization.
+
+Tech Stack: Vercel AI SDK | React | TypeScript | Tailwind CSS
+
+Key Outcomes:
+✓ Defined 12-component ontology with validated JSON Schemas
+✓ Implemented streaming token display with optimistic UI updates
+✓ Designed memory inspector and deletion controls aligned with privacy
+
+[View Case Study]
+```
+
+**Visual Treatment:**
+- Hover: Subtle zoom on image, shadow lift
+- CTA button with arrow icon
+- "In Progress" or "Live Demo" badges where applicable
+
+***
+
+### Section 5: Skill Evolution Matrix
+
+**Layout:** Interactive comparison table or slider
+
+**Title:** 
+```
+<H2>From Traditional UX to AI-Native Design</H2>
+<Subtitle>How existing design skills evolve into engineering-grade deliverables</Subtitle>
+```
+
+**Table Structure (9 rows):**
+
+| Traditional Skill | → | AI-Native Evolution | Example Artifact |
+|---|---|---|---|
+| Wireframing user flows | → | Designing agent topologies | Planner-worker topology diagram with router logic |
+| Information architecture | → | Context & knowledge architecture | Memory schema with entity types, TTL, context injection rules |
+| Design system components | → | Component ontology & JSON Schemas | TaskList, InsightPanel schemas with validation rules |
+| UX copy & microcopy | → | System prompts & safety messaging | System prompt files with structured sections, refusal templates |
+| Usability testing scripts | → | Golden Datasets & Evals | 150+ QA pairs, eval rubrics, LLM-as-a-Judge instructions |
+| Journey maps | → | Intent models & outcome distributions | Intent→outcome matrix with success criteria |
+| Error states | → | Failure-mode & hallucination design | Failure-mode trees with fallback logic, escalation triggers |
+| Motion & micro-interactions | → | Streaming & reasoning motion | Token streaming specs, trace expansion behaviors |
+| Prototype in Figma | → | Prototype with real models & schemas | GitHub repo with prompts, schemas, eval scripts |
+
+**Interactive Features:**
+- Hover on row: Highlight and expand to show artifact preview
+- Toggle view: "Table View" vs. "Card View"
+- Filter by domain: Show only orchestration-related, evaluation-related, etc.
+
+***
+
+### Section 6: Design Process & Methodology
+
+**Layout:** Horizontal timeline/flowchart (desktop), vertical (mobile)
+
+**Title:**
+```
+<H2>The AI-Native Design Process</H2>
+<Subtitle>From intent modeling to production-ready agentic systems</Subtitle>
+```
+
+**Process Steps (Interactive Timeline):**
+
+```
+Step 1: Intent & Behavior Modeling
+- Map user intents and desired system behaviors
+- Define success criteria and acceptable failure modes
+- Identify autonomy levels and HITL placement
+Icon: 🎯
+Deliverable: Intent model, behavior specifications
+
+→
+
+Step 2: Agent Topology Design
+- Architect sequential, hierarchical, or hybrid agent structures
+- Specify router logic and decision policies
+- Map tool and resource dependencies
+Icon: 🔀
+Deliverable: Topology diagrams, router decision tables
+
+→
+
+Step 3: System Prompting & Tool Definition
+- Author system prompts as versioned configuration files
+- Define tool contracts with input/output schemas
+- Specify safety guardrails and refusal conditions
+Icon: 📝
+Deliverable: System prompt files, tool definitions
+
+→
+
+Step 4: Generative UI & Component Design
+- Define component ontology with JSON Schemas
+- Design generative UI state specifications
+- Create render contracts for each component
+Icon: 🎨
+Deliverable: Component catalog, GenUI schemas
+
+→
+
+Step 5: Evaluation Framework Design
+- Create Golden Datasets with edge cases
+- Design eval rubrics and scoring functions
+- Specify behavioral metrics (regeneration, override rates)
+Icon: 📊
+Deliverable: Golden Datasets, eval configs, dashboards
+
+→
+
+Step 6: Observability & Glass Box UX
+- Specify trace schemas and visibility rules
+- Design reasoning trace visualizations
+- Create developer debugging interfaces
+Icon: 🔍
+Deliverable: Trace specs, Glass Box UI mocks
+
+→
+
+Step 7: Testing, Iteration & Deployment
+- Run evals and analyze distributions
+- Iterate on prompts, schemas, and UX based on metrics
+- Monitor production performance and trust signals
+Icon: 🚀
+Deliverable: Eval reports, iteration logs, monitoring dashboards
+```
+
+**Visual Design:**
+- Connected nodes with animated progress line
+- Click each step: Expand to show detailed activities and example artifacts
+- Visual examples: Screenshots, diagrams, code snippets for each step
+
+***
+
+### Section 7: Tools & Tech Stack
+
+**Layout:** Icon grid with categories
+
+**Categories:**
+
+```
+AI Frameworks & Orchestration
+- LangChain (multi-agent workflows)
+- LangGraph (task planning, state machines)
+- Vercel AI SDK (generative UI, streaming)
+- Google AI Studio (prompt sandbox)
+- AWS Bedrock Agents (memory, HITL)
+
+Development & Prototyping
+- Python (primary language)
+- React/Next.js (frontend)
+- Gradio (rapid UI prototyping)
+- FastAPI (backend services)
+- Replit (quick iterations)
+
+Evaluation & Observability
+- OpenAI Evals (evaluation framework)
+- LangSmith (tracing, monitoring)
+- OpenTelemetry (distributed tracing)
+- Custom eval pipelines (Python scripts)
+
+Data & Vector Search
+- ChromaDB (vector database)
+- Pinecone (vector search)
+- RAG frameworks (retrieval-augmented generation)
+
+Design & Collaboration
+- Figma (traditional wireframes, component design)
+- Miro (topology mapping, workshops)
+- Notion (documentation)
+- Git/GitHub (version control for prompts, schemas, evals)
+
+Learning Platforms
+- Kaggle (AI notebooks, competitions)
+- Deeplearning.AI (courses)
+- HuggingFace (model experimentation)
+```
+
+**Visual Design:**
+- Tool icons with tooltips on hover
+- Category headers with accent underlines
+- Animated entrance on scroll
+
+***
+
+### Section 8: Featured Work & Links
+
+**Layout:** 3-column grid (2 mobile)
+
+**Card 1: Framework Document**
+```
+Icon: 📄
+Title: "AI-Native Product Designer Framework"
+Description: Engineering-grade competency framework covering all 5 domains, skill evolution, and learning paths.
+CTA: "Download PDF"
+```
+
+**Card 2: Kaggle Notebooks**
+```
+Icon: 📊
+Title: "AI Agent Projects on Kaggle"
+Description: Published notebooks on multi-agent workflows, evaluation design, and agentic system prototyping.
+Stats: "1,200+ views"
+CTA: "View on Kaggle"
+```
+
+**Card 3: GitHub Repositories**
+```
+Icon: 💻
+Title: "Open Source Contributions"
+Description: Agent orchestration code, system prompt libraries, and evaluation frameworks.
+Stats: "Active contributor"
+CTA: "View on GitHub"
+```
+
+**Card 4: LinkedIn Thought Leadership**
+```
+Icon: 💼
+Title: "Articles & Insights"
+Description: Sharing learnings on AI-native design patterns, agentic UX, and probabilistic systems.
+CTA: "Connect on LinkedIn"
+```
+
+***
+
+### Section 9: Testimonials & Credibility (Optional)
+
+**Layout:** Carousel or grid
+
+**Content Structure:**
+```
+"[Quote about work quality, unique approach, or impact]"
+— Name, Title, Organization
+```
+
+**Placeholder Examples:**
+```
+"Arun's understanding of agentic systems goes beyond surface-level UX. His framework documents are engineering-grade artifacts that our team uses as reference."
+— Thesis Advisor, IIT Madras
+
+"Rare combination of design thinking and technical depth. His evaluation frameworks actually work in production."
+— Course Instructor, Advent of Agents
+```
+
+**Also Include:**
+- Course completion badges (Deeplearning.AI, Advent of Agents)
+- Certifications with verification links
+
+***
+
+### Section 10: Contact & CTA
+
+**Layout:** Centered content with form and direct links
+
+**Content:**
+```
+<H2>Let's Build the Future of Human-AI Interaction</H2>
+
+<Subtitle>
+Open to AI-native design roles, agent system collaborations, and consulting opportunities.
+Currently based in Basar, Telangana, India — available for remote work globally.
+
+<Contact Options - Two columns>
+
+Left: Contact Form
+- Name (required)
+- Email (required)
+- Message (textarea, required)
+- [Submit Button] with loading state and success message
+
+Right: Direct Links
+📧 Email: arun.bhisne@example.com
+💼 LinkedIn: linkedin.com/in/arunbhisne
+💻 GitHub: github.com/arunbhisne
+📊 Kaggle: kaggle.com/arunbhisne
+
+<Availability Badge>
+🟢 Available for new opportunities | Response time: 24-48 hours
+```
+
+**Visual Design:**
+- Form with clean inputs, proper validation
+- Success state: "Thanks! I'll respond within 48 hours."
+- Error state: Clear error messages
+- Social icons with hover effects
+
+***
+
+### Footer
+
+**Layout:** Three columns (stacked on mobile)
+
+**Content:**
+```
+Left Column:
+Arun Bhisne
+AI-Native Product Designer
+© 2026 All rights reserved
+
+Middle Column:
+Quick Links
+- About
+- Work
+- Skills
+- Contact
+
+Right Column:
+Resources
+- Download Framework
+- GitHub Projects
+- Kaggle Notebooks
+- LinkedIn Articles
+
+Bottom Bar:
+Built with ❤️ using React, Next.js, and Tailwind CSS
+[Dark Mode Toggle]
+```
+
+***
+
+## Animations & Micro-Interactions
+
+### Page Load
+- Hero elements fade in sequentially (0.1s stagger)
+- Smooth scroll reveal for sections (Intersection Observer)
+
+### Navigation
+- Smooth scroll to anchors with easing
+- Active section highlighted in nav
+- Sticky header with subtle shadow on scroll
+
+### Cards & Buttons
+- Lift effect on hover (translateY -4px + shadow)
+- Button states: idle → hover → active
+- Ripple effect on click
+
+### Interactive Elements
+- Domain cards: Expand/collapse with smooth height transition
+- Skill matrix: Row highlight and artifact preview on hover
+- Process timeline: Progress animation as user scrolls
+- Project cards: Image zoom on hover
+
+### Scroll Animations
+- Fade up + slight translate for sections
+- Stagger animations for card grids
+- Parallax effect on hero background (subtle)
+
+***
+
+## Mobile-Specific Considerations
+
+### Navigation
+- Hamburger menu with smooth slide-in drawer
+- Full-screen overlay menu with large touch targets
+- Close button and backdrop click to close
+
+### Typography
+- Reduce heading sizes by 20-30% on mobile
+- Increase body text to 16px minimum (avoid zoom on input focus)
+
+### Layout
+- All grids collapse to single column below 768px
+- Increased padding and spacing for thumb-friendly taps
+- Sticky CTAs at bottom of viewport on mobile
+
+### Images
+- Lazy load all images below the fold
+- Serve responsive images (srcset with multiple sizes)
+- Use WebP with fallback to JPG
+
+### Forms
+- Large input fields (min 44px height)
+- Proper input types (email, tel) for mobile keyboards
+- Clear error states below inputs
+
+***
+
+## Accessibility Requirements
+
+### Keyboard Navigation
+- All interactive elements accessible via Tab
+- Skip to main content link
+- Focus visible indicators (2px outline with accent color)
+- Logical tab order
+
+### Screen Readers
+- Semantic HTML (header, nav, main, section, article, footer)
+- ARIA labels for icon buttons
+- Alt text for all images and diagrams
+- Proper heading hierarchy (no skipped levels)
+
+### Color Contrast
+- All text meets WCAG AA (4.5:1 for normal, 3:1 for large)
+- Test both light and dark modes
+- Don't rely solely on color for meaning
+
+### Motion
+- Respect prefers-reduced-motion
+- Disable animations for users who prefer reduced motion
+- Provide alternative static states
+
+***
+
+## SEO Optimization
+
+### Meta Tags
+```html
+<title>Arun Bhisne | AI-Native Product Designer</title>
+<meta name="description" content="I architect probabilistic AI systems—designing agent topologies, system prompts, and evaluation frameworks for transparent, steerable, and safe autonomous experiences.">
+<meta name="keywords" content="AI-Native Product Designer, Agentic UX, Multi-Agent Systems, System Prompting, Evaluation Design, Generative UI, Probabilistic Design">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Arun Bhisne | AI-Native Product Designer">
+<meta property="og:description" content="Designing probabilistic, agentic AI systems that are transparent, steerable, and safe in production.">
+<meta property="og:image" content="[URL to social preview image]">
+<meta property="og:url" content="https://designer-portfolio.replit.app">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arun Bhisne | AI-Native Product Designer">
+<meta name="twitter:description" content="Architecting autonomous AI systems with transparency and trust.">
+```
+
+### Structured Data (JSON-LD)
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Arun Bhisne",
+  "jobTitle": "AI-Native Product Designer",
+  "description": "Behavior and systems architect specializing in agentic AI design",
+  "url": "https://designer-portfolio.replit.app",
+  "sameAs": [
+    "https://linkedin.com/in/arunbhisne",
+    "https://github.com/arunbhisne",
+    "https://kaggle.com/arunbhisne"
+  ]
+}
+```
+
+### Clean URLs
+- Use semantic slugs: `/about`, `/work`, `/contact`
+- No hash routing (use proper React Router or Next.js routing)
+
+***
+
+## Analytics & Tracking
+
+### Events to Track
+- Page views (each section)
+- CTA clicks ("View Work", "Download Framework", "Contact")
+- Project card expansions
+- Domain card interactions
+- Form submissions
+- External link clicks (LinkedIn, GitHub, Kaggle)
+- Dark mode toggles
+- Time on page per section
+
+### Implementation
+- Google Analytics 4 or Plausible Analytics
+- Custom events for all CTAs
+- Scroll depth tracking
+- Session recordings (optional: Hotjar or Microsoft Clarity)
+
+***
+
+## Content Placeholders
+
+### Images Needed
+1. Professional headshot or abstract avatar (hero section)
+2. ConsciousCart project mockup/screenshot
+3. Multi-agent system topology diagram (interactive SVG if possible)
+4. Evaluation dashboard screenshot
+5. Glass Box UI reasoning trace example
+6. Generative UI streaming demo (GIF or video)
+7. Skill matrix visual (can be code-generated table)
+8. Process timeline diagram
+9. Tool/tech stack icons (use Lucide or download from official sites)
+
+### Text Customization
+- Replace placeholder email: `arun.bhisne@example.com` → real email
+- Update social links with actual URLs
+- Customize project descriptions with real metrics
+- Add actual testimonials if available
+
+***
+
+## Final Checklist Before Launch
+
+### Functionality
+- [ ] All links work (internal anchors and external URLs)
+- [ ] Contact form submits successfully (with email integration or form service)
+- [ ] Dark mode toggle works across entire site
+- [ ] Mobile navigation opens and closes properly
+- [ ] All animations smooth and performant
+- [ ] No console errors in browser
+
+### Performance
+- [ ] Lighthouse score 90+ (mobile and desktop)
+- [ ] Images optimized and lazy loaded
+- [ ] Code split and minified
+- [ ] No unused CSS or JS
+
+### Content
+- [ ] All placeholder text replaced with real content
+- [ ] Spelling and grammar checked
+- [ ] All project links updated
+- [ ] Social links verified
+- [ ] Resume/framework PDF downloadable
+
+### Cross-Browser Testing
+- [ ] Chrome (desktop and mobile)
+- [ ] Safari (desktop and mobile)
+- [ ] Firefox
+- [ ] Edge
+
+### Accessibility
+- [ ] Keyboard navigation works
+- [ ] Screen reader tested (VoiceOver or NVDA)
+- [ ] Color contrast passes WCAG AA
+- [ ] All images have alt text
+
+### SEO
+- [ ] Meta tags in place
+- [ ] Structured data added
+- [ ] Sitemap generated
+- [ ] robots.txt configured
+- [ ] Analytics installed
+
+***
+
+## Development Notes for Replit
+
+### File Structure
+```
+/src
+  /components
+    - Navigation.jsx
+    - Hero.jsx
+    - About.jsx
+    - CoreDomains.jsx
+    - Projects.jsx
+    - SkillMatrix.jsx
+    - Process.jsx
+    - TechStack.jsx
+    - Contact.jsx
+    - Footer.jsx
+  /styles
+    - globals.css
+    - variables.css
+  /utils
+    - animations.js
+    - analytics.js
+  App.jsx
+  index.js
+
+/public
+  /images
+  /icons
+  favicon.ico
+```
+
+### Key Libraries to Install
+```bash
+npm install react react-dom
+npm install framer-motion
+npm install lucide-react
+npm install react-intersection-observer
+npm install tailwindcss
+```
+
+### Environment Variables
+```
+NEXT_PUBLIC_ANALYTICS_ID=your-ga4-id
+FORM_SUBMISSION_ENDPOINT=your-form-service-url
+```
+
+***
+
+## Summary
+
+Build a **world-class, engineering-grade portfolio** that positions me as an **AI-Native Product Designer**—not a traditional UX designer. The portfolio should:
+
+1. **Immediately differentiate** my role (behavior architect, not interface designer)
+2. **Showcase technical depth** (system prompts, agent topologies, evals, schemas)
+3. **Demonstrate real projects** with engineering-grade artifacts
+4. **Educate visitors** on what AI-native design means
+5. **Be performant, accessible, and beautiful** (minimalist, modern, classic aesthetic)
+6. **Convert visitors** with clear CTAs and compelling case studies
+7. **Reflect my unique positioning** at the intersection of design and AI systems engineering
+
+This portfolio should make hiring managers and technical teams say: *"This is exactly the type of designer we need for our AI products."*
+
+***
+
+**Let's build this! 🚀**

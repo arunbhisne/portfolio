@@ -2,47 +2,51 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, MessageSquare, AlertTriangle, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ShoppingCart, Users, Sparkles, Check } from "lucide-react";
 
 const projects = [
   {
-    icon: MessageSquare,
-    title: "Agentic Customer Service Agent",
+    icon: ShoppingCart,
+    title: "ConsciousCart - AI Agent for Sustainable Product Analysis",
+    type: "Agentic System",
     description:
-      "Designed a multi-agent orchestration system for enterprise customer support with human-in-the-loop escalation patterns and real-time observability.",
+      "Built an AI agent system that scans product barcodes, retrieves sustainability data, and provides actionable recommendations. The system uses a multi-agent architecture (scanner \u2192 analyzer \u2192 recommendation engine) with custom evaluation metrics for accuracy and user trust.",
+    techStack: ["Python", "LangChain", "Google AI Studio", "Gradio", "Vector DB"],
     outcomes: [
-      "40% reduction in escalation time",
-      "Real-time reasoning visibility",
-      "Seamless agent handoffs",
+      "Architected 3-agent sequential topology with router logic",
+      "Designed evaluation framework with 150+ golden dataset examples",
+      "Achieved 87% recommendation accuracy with < 15% regeneration rate",
     ],
-    tags: ["Orchestration", "HITL", "Observability"],
-    accent: "from-blue-500/10 to-cyan-500/10 dark:from-blue-500/5 dark:to-cyan-500/5",
+    gradient: "from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/5 dark:to-teal-500/5",
   },
   {
-    icon: AlertTriangle,
-    title: "Uncertainty & Recovery Patterns",
+    icon: Users,
+    title: "Multi-Agent Customer Service System",
+    type: "Thesis Project",
     description:
-      "Created a framework for handling probabilistic outputs with confidence scoring, uncertainty communication, and graceful degradation patterns.",
+      "Designed a hierarchical agent system for customer support with intent classification, dynamic routing, and human-in-the-loop confirmations for high-stakes actions. Focused on transparency through reasoning traces and failure recovery patterns.",
+    techStack: ["Python", "LangGraph", "FastAPI", "React", "OpenTelemetry"],
     outcomes: [
-      "Trust calibration system",
-      "Confidence visualization",
-      "Failure mode mapping",
+      "Specified planner-worker hierarchy with 5 specialized worker agents",
+      "Designed Glass Box UI revealing step-by-step reasoning to users",
+      "Created failure-mode trees with explicit escalation triggers",
     ],
-    tags: ["Failure Design", "Trust Building", "UX Patterns"],
-    accent: "from-amber-500/10 to-orange-500/10 dark:from-amber-500/5 dark:to-orange-500/5",
+    gradient: "from-blue-500/10 to-cyan-500/10 dark:from-blue-500/5 dark:to-cyan-500/5",
   },
   {
     icon: Sparkles,
     title: "Generative UI Co-Pilot",
+    type: "Research Prototype",
     description:
-      "Built a streaming generative interface with memory-driven context that adapts UI components based on conversation history and user intent.",
+      "Prototyped an agent that generates task-specific UI dynamically based on user intent, using a component ontology with strict JSON Schemas. Implemented streaming interactions and memory-driven context chips for personalization.",
+    techStack: ["Vercel AI SDK", "React", "TypeScript", "Tailwind CSS"],
     outcomes: [
-      "Dynamic component generation",
-      "Context-aware responses",
-      "Streaming UI updates",
+      "Defined 12-component ontology with validated JSON Schemas",
+      "Implemented streaming token display with optimistic UI updates",
+      "Designed memory inspector and deletion controls aligned with privacy",
     ],
-    tags: ["Generative UI", "Streaming", "Memory"],
-    accent: "from-purple-500/10 to-pink-500/10 dark:from-purple-500/5 dark:to-pink-500/5",
+    gradient: "from-purple-500/10 to-pink-500/10 dark:from-purple-500/5 dark:to-pink-500/5",
   },
 ];
 
@@ -68,11 +72,14 @@ export function ProjectsSection() {
             Selected Work
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-2xl" data-testid="text-projects-heading">
-            Case studies in AI-Native design
+            Portfolio Projects
           </h2>
+          <p className="mt-4 text-muted-foreground max-w-xl">
+            Case studies in AI-Native design spanning agentic systems, multi-agent workflows, and generative interfaces.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -81,50 +88,64 @@ export function ProjectsSection() {
               transition={{ duration: 0.5, delay: 0.15 * index }}
             >
               <Card
-                className="h-full overflow-hidden hover-elevate group"
+                className="overflow-hidden hover-elevate"
                 data-testid={`card-project-${index}`}
               >
-                <div
-                  className={`h-32 bg-gradient-to-br ${project.accent} flex items-center justify-center`}
-                >
-                  <project.icon className="h-10 w-10 text-muted-foreground/50" />
-                </div>
-
-                <div className="p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-display font-semibold text-lg leading-tight">
-                      {project.title}
-                    </h3>
-                    <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                <div className="grid lg:grid-cols-[1fr_1.5fr] gap-0">
+                  <div
+                    className={`bg-gradient-to-br ${project.gradient} p-8 lg:p-10 flex items-center justify-center min-h-[200px]`}
+                  >
+                    <project.icon className="h-16 w-16 text-primary/60" />
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
+                  <div className="p-6 lg:p-8 space-y-5">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div className="space-y-2">
+                        <Badge variant="secondary" className="text-xs font-mono">
+                          {project.type}
+                        </Badge>
+                        <h3 className="font-display font-semibold text-xl leading-tight">
+                          {project.title}
+                        </h3>
+                      </div>
+                    </div>
 
-                  <div className="space-y-2 pt-2">
-                    <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
-                      Key Outcomes
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.description}
                     </p>
-                    <ul className="space-y-1">
-                      {project.outcomes.map((outcome) => (
-                        <li
-                          key={outcome}
-                          className="text-sm text-foreground flex items-center gap-2"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-muted-foreground" />
-                          {outcome}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
 
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs font-mono bg-muted rounded-md text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="space-y-2">
+                      <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                        Key Outcomes
+                      </p>
+                      <ul className="space-y-1.5">
+                        {project.outcomes.map((outcome) => (
+                          <li
+                            key={outcome}
+                            className="text-sm text-foreground flex items-start gap-2"
+                          >
+                            <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                            {outcome}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button variant="outline" size="sm" className="font-mono text-xs">
+                      View Case Study
+                      <ArrowRight className="ml-2 h-3 w-3" />
+                    </Button>
                   </div>
                 </div>
               </Card>
