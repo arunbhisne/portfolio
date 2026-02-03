@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { AgentNetwork } from "./agent-network";
 
 export function HeroSection() {
   const scrollToWork = () => {
@@ -86,6 +87,14 @@ export function HeroSection() {
               <Mail className="mr-2 h-4 w-4" />
               Get in Touch
             </Button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <AgentNetwork />
           </motion.div>
         </motion.div>
 

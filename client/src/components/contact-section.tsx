@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,12 +17,19 @@ import {
 } from "@/components/ui/form";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { Badge } from "@/components/ui/badge";
 import { 
   Mail, 
   Linkedin, 
   Github, 
   Send,
-  ArrowUpRight
+  ArrowUpRight,
+  MapPin,
+  Clock,
+  Calendar,
+  Sparkles,
+  Copy,
+  Check
 } from "lucide-react";
 import { SiKaggle } from "react-icons/si";
 
@@ -32,6 +39,7 @@ const socialLinks = [
     label: "Email",
     href: "mailto:hello@arunbhisne.com",
     username: "hello@arunbhisne.com",
+    copyable: true,
   },
   {
     icon: Linkedin,
@@ -53,6 +61,18 @@ const socialLinks = [
   },
 ];
 
+const currentlyLearning = [
+  "Multi-Agent Orchestration",
+  "LangGraph Patterns",
+  "Evaluation Frameworks",
+];
+
+const targetRoles = [
+  "AI Product Designer",
+  "AI/ML UX Researcher",
+  "Agentic Systems Designer",
+];
+
 const contactFormSchema = insertContactSchema.extend({
   name: insertContactSchema.shape.name.min(2, "Name must be at least 2 characters"),
   email: insertContactSchema.shape.email.email("Please enter a valid email"),
@@ -63,6 +83,7 @@ export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const form = useForm<InsertContact>({
     resolver: zodResolver(contactFormSchema),
@@ -96,6 +117,16 @@ export function ContactSection() {
 
   const onSubmit = (data: InsertContact) => {
     contactMutation.mutate(data);
+  };
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText("hello@arunbhisne.com");
+    setCopiedEmail(true);
+    toast({
+      title: "Email copied!",
+      description: "Email address copied to clipboard.",
+    });
+    setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   return (
@@ -203,6 +234,19 @@ export function ContactSection() {
                 </Button>
               </form>
             </Form>
+
+            <div className="mt-8 pt-6 border-t border-border">
+              <p className="text-sm text-muted-foreground mb-3">Prefer to chat directly?</p>
+              <Button
+                variant="outline"
+                className="font-display"
+                onClick={() => window.open("https://calendly.com/arunbhisne", "_blank")}
+                data-testid="button-schedule-call"
+              >
+                <Calendar className="mr-2 h-4 w-4" />
+                Schedule a Call
+              </Button>
+            </div>
           </motion.div>
 
           <motion.div
@@ -211,36 +255,90 @@ export function ContactSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="space-y-8"
           >
+            <div className="flex items-start gap-4">
+              <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center shrink-0">
+                <span className="font-display text-2xl font-bold text-muted-foreground">AB</span>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-display font-semibold text-lg">Arun Bhisne</h3>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <MapPin className="h-3.5 w-3.5" />
+                  <span>Basar, Telangana, India</span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>Responds within 24 hours</span>
+                </div>
+              </div>
+            </div>
+
             <div>
               <h3 className="font-display font-semibold mb-4" data-testid="text-connect-heading">Connect</h3>
               <div className="space-y-3">
                 {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
-                    data-testid={`link-social-${link.label.toLowerCase()}`}
-                  >
-                    <link.icon className="h-5 w-5" />
-                    <span className="text-sm" data-testid={`text-social-${link.label.toLowerCase()}`}>{link.username}</span>
-                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                  <div key={link.label} className="flex items-center gap-2">
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
+                      data-testid={`link-social-${link.label.toLowerCase()}`}
+                    >
+                      <link.icon className="h-5 w-5" />
+                      <span className="text-sm" data-testid={`text-social-${link.label.toLowerCase()}`}>{link.username}</span>
+                      <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                    {link.copyable && (
+                      <button
+                        onClick={copyEmail}
+                        className="p-1.5 hover:bg-muted rounded-sm transition-colors"
+                        data-testid="button-copy-email"
+                      >
+                        {copiedEmail ? (
+                          <Check className="h-3.5 w-3.5 text-green-500" />
+                        ) : (
+                          <Copy className="h-3.5 w-3.5 text-muted-foreground" />
+                        )}
+                      </button>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
 
             <div className="pt-6 border-t border-border">
               <h3 className="font-display font-semibold mb-4" data-testid="text-opportunities-heading">
-                Open for opportunities
+                Actively Seeking
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-opportunities-description">
-                I'm currently exploring roles where I can apply AI-Native
-                product design principles to build transparent, steerable AI
-                systems. If you're working on the future of human-AI
-                interaction, let's talk.
+              <div className="flex flex-wrap gap-2 mb-4">
+                {targetRoles.map((role) => (
+                  <Badge key={role} variant="secondary" className="text-xs">
+                    {role}
+                  </Badge>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2" data-testid="text-opportunities-description">
+                <span className="shrink-0 mt-0.5">Open to remote opportunities globally</span>
               </p>
+            </div>
+
+            <div className="pt-6 border-t border-border">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="h-4 w-4 text-muted-foreground" />
+                <h3 className="font-display font-semibold text-sm" data-testid="text-learning-heading">
+                  Currently Exploring
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {currentlyLearning.map((topic) => (
+                  <span
+                    key={topic}
+                    className="px-2 py-1 text-xs font-mono bg-muted rounded-sm text-muted-foreground"
+                  >
+                    {topic}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

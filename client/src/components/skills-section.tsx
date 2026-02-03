@@ -1,41 +1,64 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Palette, Code } from "lucide-react";
 
 const skillEvolutions = [
   {
     traditional: "Wireframes & Mockups",
     aiNative: "Agent Topology Diagrams",
+    level: 5,
   },
   {
     traditional: "UI Components",
     aiNative: "Component Ontologies & JSON Schemas",
+    level: 5,
   },
   {
     traditional: "User Flows",
     aiNative: "Orchestration & Routing Logic",
+    level: 4,
   },
   {
     traditional: "Error States",
     aiNative: "Failure-Mode Trees & Recovery Patterns",
+    level: 4,
   },
   {
     traditional: "Design Systems",
     aiNative: "Machine-Addressable Design Systems",
+    level: 5,
   },
   {
     traditional: "User Testing",
     aiNative: "Evaluation Design & Golden Datasets",
+    level: 4,
   },
   {
     traditional: "Analytics Dashboards",
     aiNative: "Observability & Reasoning Traces",
+    level: 4,
   },
   {
     traditional: "Personas & Journeys",
     aiNative: "Intent Modeling & Behavior Specifications",
+    level: 5,
   },
 ];
+
+function SkillLevel({ level }: { level: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {[1, 2, 3, 4, 5].map((dot) => (
+        <div
+          key={dot}
+          className={`w-1.5 h-1.5 rounded-full transition-colors ${
+            dot <= level ? "bg-foreground" : "bg-muted"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
 
 export function SkillsSection() {
   const ref = useRef(null);
@@ -64,13 +87,22 @@ export function SkillsSection() {
         </motion.div>
 
         <div className="grid gap-0.5 overflow-hidden rounded-md border border-border">
-          <div className="grid grid-cols-[1fr_auto_1fr] bg-muted p-4 gap-4">
-            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              Traditional UX
-            </span>
+          <div className="grid grid-cols-[1fr_auto_1fr_auto] bg-muted p-4 gap-4">
+            <div className="flex items-center gap-2">
+              <Palette className="h-4 w-4 text-muted-foreground" />
+              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                Traditional UX
+              </span>
+            </div>
             <span className="w-8" />
-            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              AI-Native Engineering
+            <div className="flex items-center gap-2">
+              <Code className="h-4 w-4 text-foreground" />
+              <span className="font-mono text-xs uppercase tracking-wider text-foreground">
+                AI-Native Engineering
+              </span>
+            </div>
+            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground hidden md:block">
+              Depth
             </span>
           </div>
 
@@ -80,15 +112,33 @@ export function SkillsSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.05 * index }}
-              className="grid grid-cols-[1fr_auto_1fr] bg-background p-4 gap-4 items-center"
+              className="grid grid-cols-[1fr_auto_1fr_auto] bg-background p-4 gap-4 items-center group"
             >
-              <span className="text-muted-foreground text-sm">
+              <span className="text-muted-foreground text-sm group-hover:text-muted-foreground/70 transition-colors">
                 {skill.traditional}
               </span>
-              <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" />
-              <span className="font-medium text-sm text-foreground">
+              <div className="relative">
+                <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" />
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ x: 0 }}
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    delay: 1 + index * 0.1,
+                    repeat: Infinity,
+                    repeatDelay: 3
+                  }}
+                >
+                  <div className="w-1 h-1 rounded-full bg-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.div>
+              </div>
+              <span className="font-medium text-sm text-foreground bg-gradient-to-r from-foreground to-foreground bg-clip-text">
                 {skill.aiNative}
               </span>
+              <div className="hidden md:block">
+                <SkillLevel level={skill.level} />
+              </div>
             </motion.div>
           ))}
         </div>

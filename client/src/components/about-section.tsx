@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Brain, Layers, Workflow, Eye } from "lucide-react";
+import { SampleArtifacts } from "./sample-artifacts";
 
 const highlights = [
   {
@@ -91,6 +92,8 @@ export function AboutSection() {
             ))}
           </div>
         </motion.div>
+
+        <SampleArtifacts />
 
         <motion.blockquote
           initial={{ opacity: 0 }}

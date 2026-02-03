@@ -10,17 +10,35 @@ const navLinks = [
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#process", label: "Process" },
+  { href: "#tools", label: "Tools" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const sections = navLinks.map((link) => link.href.replace("#", ""));
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+
+      if (window.scrollY < 200) {
+        setActiveSection("");
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -57,18 +75,32 @@ export function Navigation() {
           </a>
 
           <div className="hidden md:flex items-center gap-1 flex-wrap">
-            {navLinks.map((link) => (
-              <Button
-                key={link.href}
-                variant="ghost"
-                size="sm"
-                onClick={() => scrollToSection(link.href)}
-                className="font-medium"
-                data-testid={`link-nav-${link.label.toLowerCase()}`}
-              >
-                {link.label}
-              </Button>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+              
+              return (
+                <Button
+                  key={link.href}
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => scrollToSection(link.href)}
+                  className={`font-medium relative ${
+                    isActive ? "text-foreground" : "text-muted-foreground"
+                  }`}
+                  data-testid={`link-nav-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Button>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-2">
@@ -95,17 +127,22 @@ export function Navigation() {
             className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Button
-                  key={link.href}
-                  variant="ghost"
-                  onClick={() => scrollToSection(link.href)}
-                  className="justify-start"
-                  data-testid={`link-mobile-nav-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                </Button>
-              ))}
+              {navLinks.map((link) => {
+                const sectionId = link.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+                
+                return (
+                  <Button
+                    key={link.href}
+                    variant="ghost"
+                    onClick={() => scrollToSection(link.href)}
+                    className={`justify-start ${isActive ? "bg-muted" : ""}`}
+                    data-testid={`link-mobile-nav-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Button>
+                );
+              })}
             </div>
           </motion.div>
         )}
