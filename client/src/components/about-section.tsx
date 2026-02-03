@@ -1,29 +1,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Card } from "@/components/ui/card";
-import { BarChart3, GraduationCap, Wrench, Link2 } from "lucide-react";
+import { Brain, Layers, Workflow, Eye } from "lucide-react";
 
-const statsCards = [
+const highlights = [
   {
-    icon: BarChart3,
-    title: "5 Core Competencies",
-    description: "Probabilistic Behavior | Orchestration | System Prompting | Evaluation | Observability",
+    icon: Brain,
+    title: "Probabilistic Behaviors",
+    description: "Architect for uncertainty, not deterministic flows",
   },
   {
-    icon: GraduationCap,
-    title: "Specialized Training",
-    description: "Advent of Agents, Deeplearning.AI Agentic AI, IIT Madras UI/UX with Agentic AI",
+    icon: Layers,
+    title: "Agent Topologies",
+    description: "Design multi-agent systems and orchestration patterns",
   },
   {
-    icon: Wrench,
-    title: "Tech Stack",
-    description: "Python, LangGraph, Vercel AI SDK, Gradio, LangChain, Google AI Studio, Kaggle",
+    icon: Workflow,
+    title: "System Prompts",
+    description: "Craft machine-addressable design systems",
   },
   {
-    icon: Link2,
-    title: "Active Platforms",
-    description: "GitHub (agent projects) | Kaggle (AI notebooks) | LinkedIn (thought leadership)",
+    icon: Eye,
+    title: "Observability",
+    description: "Build transparent, debuggable AI interfaces",
   },
 ];
 
@@ -43,81 +42,70 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-start"
+          className="grid md:grid-cols-2 gap-12 md:gap-16 items-start"
         >
           <div className="space-y-6">
             <p className="text-muted-foreground font-mono text-sm tracking-wider uppercase" data-testid="text-about-label">
               About
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight" data-testid="text-about-heading">
-              The AI-Native Product Designer
+              I design for what AI does when we're not looking
             </h2>
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm a behavior and systems architect who designs what AI does when we're not looking.
-                Unlike traditional UX designers who create static interfaces, I architect autonomous
-                systems by specifying how models, agents, and tools behave under real-world uncertainty.
+                I'm an AI-Native Product Designer — a behavior and systems
+                architect who designs probabilistic, agentic AI systems.
               </p>
               <p>
-                My work spans <span className="text-foreground font-medium">agent topologies</span>{" "}
-                (orchestrating multi-agent workflows), <span className="text-foreground font-medium">system prompts</span>{" "}
-                (machine-addressable behavior contracts), <span className="text-foreground font-medium">evaluation frameworks</span>{" "}
-                (golden datasets and LLM-as-a-Judge rubrics), and <span className="text-foreground font-medium">Glass Box UX</span>{" "}
-                (reasoning traces and provenance visualization).
+                Unlike traditional UX designers who create static interfaces, I
+                architect autonomous systems by specifying system prompts, agent
+                topologies, evaluation frameworks, and generative UI schemas.
               </p>
               <p>
-                I bridge design thinking with engineering depth—owning specs, diagrams, JSON schemas,
-                and eval pipelines alongside traditional UX deliverables. My goal: making AI systems{" "}
-                <span className="text-foreground font-medium">intelligible</span>,{" "}
-                <span className="text-foreground font-medium">steerable</span>,{" "}
-                <span className="text-foreground font-medium">evaluable</span>, and{" "}
-                <span className="text-foreground font-medium">safe</span>.
+                My work makes AI systems{" "}
+                <span className="text-foreground font-medium">transparent</span>,{" "}
+                <span className="text-foreground font-medium">steerable</span>, and{" "}
+                <span className="text-foreground font-medium">safe</span> in
+                production.
               </p>
             </div>
-
-            <motion.blockquote
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 pl-6 border-l-2 border-primary"
-            >
-              <p className="text-lg italic text-muted-foreground">
-                "We're no longer designing for the machine—we're designing for what
-                the machine does when we're not looking."
-              </p>
-              <cite className="mt-3 block text-sm text-muted-foreground not-italic">
-                — Robb Wilson, AI Researcher
-              </cite>
-            </motion.blockquote>
           </div>
 
-          <div className="space-y-4">
-            {statsCards.map((card, index) => (
+          <div className="grid grid-cols-2 gap-4">
+            {highlights.map((item, index) => (
               <motion.div
-                key={card.title}
-                initial={{ opacity: 0, x: 20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="p-5 rounded-md border border-border bg-background space-y-3"
               >
-                <Card className="p-5 hover-elevate" data-testid={`card-stat-${index}`}>
-                  <div className="flex gap-4">
-                    <div className="p-2 rounded-md bg-primary/10 h-fit">
-                      <card.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-display font-semibold text-sm">
-                        {card.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {card.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                <item.icon className="h-5 w-5 text-muted-foreground" />
+                <h3 className="font-display font-semibold text-sm">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </motion.div>
+
+        <motion.blockquote
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16 pt-8 border-t border-border"
+        >
+          <p className="text-lg md:text-xl italic text-muted-foreground max-w-3xl">
+            "We're no longer designing for the machine—we're designing for what
+            the machine does when we're not looking."
+          </p>
+          <cite className="mt-4 block text-sm text-muted-foreground not-italic">
+            — Robb Wilson, AI Systems Researcher
+          </cite>
+        </motion.blockquote>
       </div>
     </section>
   );

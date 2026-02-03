@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,9 +22,7 @@ import {
   Linkedin, 
   Github, 
   Send,
-  ArrowUpRight,
-  MapPin,
-  Clock
+  ArrowUpRight
 } from "lucide-react";
 import { SiKaggle } from "react-icons/si";
 
@@ -33,26 +30,26 @@ const socialLinks = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:arun.bhisne@example.com",
-    username: "arun.bhisne@example.com",
+    href: "mailto:hello@arunbhisne.com",
+    username: "hello@arunbhisne.com",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     href: "https://linkedin.com/in/arunbhisne",
-    username: "linkedin.com/in/arunbhisne",
+    username: "arunbhisne",
   },
   {
     icon: Github,
     label: "GitHub",
     href: "https://github.com/arunbhisne",
-    username: "github.com/arunbhisne",
+    username: "arunbhisne",
   },
   {
     icon: SiKaggle,
     label: "Kaggle",
     href: "https://kaggle.com/arunbhisne",
-    username: "kaggle.com/arunbhisne",
+    username: "arunbhisne",
   },
 ];
 
@@ -84,7 +81,7 @@ export function ContactSection() {
     onSuccess: () => {
       toast({
         title: "Message sent!",
-        description: "Thanks! I'll respond within 48 hours.",
+        description: "Thanks for reaching out. I'll get back to you soon.",
       });
       form.reset();
     },
@@ -113,50 +110,24 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-12"
         >
           <p className="text-muted-foreground font-mono text-sm tracking-wider uppercase mb-4" data-testid="text-contact-label">
             Get in Touch
           </p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-2xl mx-auto" data-testid="text-contact-heading">
-            Let's Build the Future of Human-AI Interaction
+          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-2xl" data-testid="text-contact-heading">
+            Let's build the future of human-AI interaction together
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-            Open to AI-native design roles, agent system collaborations, and consulting opportunities.
-          </p>
-          <div className="flex items-center justify-center gap-4 mt-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1">
-              <MapPin className="h-4 w-4" />
-              Basar, Telangana, India
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              Available for remote work
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex justify-center mb-12"
-        >
-          <Badge className="bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20 px-4 py-2 text-sm font-mono">
-            <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse" />
-            Available for new opportunities | Response time: 24-48 hours
-          </Badge>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="font-display font-semibold text-lg mb-6">Send a Message</h3>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -202,7 +173,7 @@ export function ContactSection() {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell me about your project or opportunity..."
+                          placeholder="Tell me about your project..."
                           rows={5}
                           className="resize-none"
                           data-testid="input-message"
@@ -218,7 +189,7 @@ export function ContactSection() {
                   type="submit"
                   size="lg"
                   disabled={contactMutation.isPending}
-                  className="w-full font-display"
+                  className="w-full md:w-auto font-display"
                   data-testid="button-submit-contact"
                 >
                   {contactMutation.isPending ? (
@@ -237,34 +208,39 @@ export function ContactSection() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display font-semibold text-lg mb-6" data-testid="text-connect-heading">
-                Direct Links
-              </h3>
-              <div className="space-y-4">
+              <h3 className="font-display font-semibold mb-4" data-testid="text-connect-heading">Connect</h3>
+              <div className="space-y-3">
                 {socialLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-4 rounded-md border border-border bg-card hover-elevate transition-colors group"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
                     data-testid={`link-social-${link.label.toLowerCase()}`}
                   >
-                    <div className="p-2 rounded-md bg-primary/10">
-                      <link.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-medium text-sm">{link.label}</span>
-                      <p className="text-xs text-muted-foreground">{link.username}</p>
-                    </div>
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <link.icon className="h-5 w-5" />
+                    <span className="text-sm" data-testid={`text-social-${link.label.toLowerCase()}`}>{link.username}</span>
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 ))}
               </div>
+            </div>
+
+            <div className="pt-6 border-t border-border">
+              <h3 className="font-display font-semibold mb-4" data-testid="text-opportunities-heading">
+                Open for opportunities
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed" data-testid="text-opportunities-description">
+                I'm currently exploring roles where I can apply AI-Native
+                product design principles to build transparent, steerable AI
+                systems. If you're working on the future of human-AI
+                interaction, let's talk.
+              </p>
             </div>
           </motion.div>
         </div>
