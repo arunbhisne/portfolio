@@ -1,0 +1,133 @@
+Create a minimalist, modern, classic designer portfolio website for an AI-Native Product Designer with the following specifications:
+
+About the Role & Professional Identity:
+I'm an AI-Native Product Designer - a behavior and systems architect who designs probabilistic, agentic AI systems. Unlike traditional UX designers who create static interfaces, I architect autonomous systems by specifying system prompts, agent topologies, evaluation frameworks, and generative UI schemas that make AI systems transparent, steerable, and safe in production.
+
+Design Direction:
+Style: Minimalist, modern, classic designer aesthetic
+
+Visual Language: Clean, professional, engineering-grade precision with design sophistication
+
+Color Palette: Neutral tones (blacks, whites, grays) with subtle accent colors for hierarchy
+
+Typography: Sans-serif, clean hierarchy (suggest Inter, Space Grotesk, or similar modern typeface)
+
+Layout: Grid-based, spacious, generous white space, Brutalist/Swiss design influences
+
+Interaction: Subtle animations, smooth transitions, professional polish
+
+Core Sections to Include:
+1. Hero Section
+
+Name: Arun Bhisne
+
+Tagline: "AI-Native Product Designer | Behavior & Systems Architect"
+
+Subtitle: "Designing probabilistic AI systems that are transparent, steerable, and safe"
+
+CTA: "View Work" and "Get in Touch"
+
+2. About Section
+Explain the AI-Native Product Designer role:
+
+"I design for what AI does when we're not looking"
+
+Architect probabilistic behaviors, not fixed interfaces
+
+Specialize in agent topologies, system prompts, evaluation frameworks, and generative UI
+
+Bridge design thinking with engineering depth
+
+3. Core Competencies (5 Domain Cards)
+Display as interactive cards or sections:
+
+Probabilistic Behavior & Failure Design - Designing for uncertainty, hallucinations, and failure modes
+
+Orchestration & Agent Topologies - Multi-agent systems, router logic, autonomy matrices
+
+System Prompting & Generative UI - Component ontologies, JSON schemas, machine-addressable design
+
+Evaluation Design & Behavioral Metrics - Golden datasets, evals, LLM-as-a-Judge frameworks
+
+Observability & Reasoning Traces - Glass Box UX, provenance, developer debugging interfaces
+
+4. Skills & Deliverables
+Two-column comparison showing evolution:
+
+Traditional UX Deliverables → AI-Native Engineering-Grade Deliverables
+
+Examples: Wireframes → Agent topology diagrams; Components → Component ontologies & JSON schemas; Error states → Failure-mode trees
+
+5. Projects Section (Portfolio Case Studies)
+Include placeholders for 3 key projects:
+
+Project 1: Agentic Customer Service Agent (orchestration, observability, HITL)
+
+Project 2: Uncertainty & Recovery Patterns (probabilistic outputs, trust-building)
+
+Project 3: Generative UI Co-Pilot (streaming, memory-driven context)
+
+Each project card should show: Title, description, tech stack, key outcomes
+
+6. Process/Approach Section
+Visualize the AI-Native design process:
+
+From intent modeling → agent topology → system prompts → evaluation design → observability
+
+Show how traditional design thinking integrates with engineering rigor
+
+7. Contact Section
+
+Email, LinkedIn, GitHub, Kaggle
+
+Clear CTA: "Let's build the future of human-AI interaction together"
+
+Form or direct contact options
+
+Technical Requirements:
+Responsive: Mobile-first, works beautifully on all devices
+
+Performance: Fast loading, optimized images
+
+Accessibility: WCAG AA compliant, semantic HTML
+
+Animations: Scroll-triggered reveals, smooth hover states, subtle parallax
+
+Framework: Use modern stack (React/Next.js preferred, vanilla JS acceptable)
+
+Components: Modular, reusable component architecture
+
+Navigation: Sticky header with smooth scroll anchors
+
+Special Features to Include:
+Interactive Agent Topology Diagram - Animated visualization showing sequential/hierarchical agent structures
+
+Skill Matrix Visual - Interactive table/grid showing traditional skill → AI-native evolution
+
+Testimonial/Research Citations - Pull quotes from key researchers (Robb Wilson: "We're no longer designing for the machine—we're designing for what the machine does when we're not looking")
+
+Resource Links - Curated links to key frameworks (Microsoft HAX, Vercel AI SDK, LangGraph, Model Context Protocol)
+
+Content Tone:
+Professional yet approachable
+
+Engineering-precise but design-minded
+
+Forward-thinking, emerging role positioning
+
+Authoritative but not arrogant
+
+Emphasize systems thinking, behavioral architecture, transparency
+
+Optional Enhancements:
+Dark mode toggle
+
+Project filtering by competency domain
+
+Downloadable resume/framework PDF
+
+Blog/writing section for thought leadership
+
+Case study deep-dive pages
+
+Build this portfolio to showcase a designer who thinks like an engineer and builds like a product architect - someone operating at the intersection of design, AI systems, and behavioral engineering.
