@@ -29,7 +29,7 @@ const processSteps = [
       "Create intent classification taxonomies",
     ],
     tools: ["Miro", "Figma", "User Research"],
-    duration: "1-2 weeks",
+    duration: "Typical: 1-2 weeks",
     output: "Intent Specification Document",
   },
   {
@@ -45,7 +45,7 @@ const processSteps = [
       "Create autonomy matrices for human oversight",
     ],
     tools: ["Whimsical", "LangGraph", "Mermaid"],
-    duration: "2-3 weeks",
+    duration: "Typical: 2-3 weeks",
     output: "Agent Topology Diagram",
     hasLoop: true,
     loopTo: "01",
@@ -63,7 +63,7 @@ const processSteps = [
       "Design fallback and error handling prompts",
     ],
     tools: ["VS Code", "DSPy", "Promptfoo"],
-    duration: "2-4 weeks",
+    duration: "Typical: 2-4 weeks",
     output: "System Prompt Library",
   },
   {
@@ -79,7 +79,7 @@ const processSteps = [
       "Set up regression testing pipelines",
     ],
     tools: ["OpenAI Evals", "LangSmith", "Promptfoo"],
-    duration: "1-2 weeks",
+    duration: "Typical: 1-2 weeks",
     output: "Evaluation Framework",
     hasLoop: true,
     loopTo: "01",
@@ -97,7 +97,7 @@ const processSteps = [
       "Implement provenance tracking",
     ],
     tools: ["LangSmith", "Weights & Biases", "React"],
-    duration: "2-3 weeks",
+    duration: "Typical: 2-3 weeks",
     output: "Observability Dashboard",
   },
 ];
@@ -132,8 +132,8 @@ export function ProcessSection() {
             How I architect AI-Native systems
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl">
-            A methodology that bridges traditional design thinking with
-            engineering rigor for autonomous systems.
+            A five-step workflow for designing reliable, auditable AI product
+            behavior.
           </p>
         </motion.div>
 
@@ -270,12 +270,22 @@ export function ProcessSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4"
         >
-          <Button variant="outline" className="font-display" data-testid="button-download-framework">
+          <Button
+            variant="outline"
+            className="font-display"
+            data-testid="button-download-framework"
+            onClick={() =>
+              window.open(
+                "mailto:hello@arunbhisne.com?subject=Process%20Framework%20Request",
+                "_blank",
+              )
+            }
+          >
             <Download className="mr-2 h-4 w-4" />
-            Download Process Framework
+            Request Process Framework
           </Button>
           <p className="text-xs text-muted-foreground">
-            PDF guide with templates and checklists
+            PDF with templates and checklists, shared on request
           </p>
         </motion.div>
       </div>

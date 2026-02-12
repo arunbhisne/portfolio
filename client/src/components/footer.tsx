@@ -20,7 +20,7 @@ export function Footer() {
           </div>
 
           <p className="text-sm text-muted-foreground text-center">
-            Designing for what AI does when we're not looking.
+            Designing AI behaviors people can understand, steer, and trust.
           </p>
 
           <p className="text-sm text-muted-foreground">

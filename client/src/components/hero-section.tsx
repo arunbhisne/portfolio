@@ -32,7 +32,7 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="text-muted-foreground font-mono text-sm tracking-wider uppercase"
             >
-              AI-Native Product Designer
+              AI-Native Designer
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
@@ -52,13 +52,11 @@ export function HeroSection() {
             className="space-y-6"
           >
             <h2 className="font-display text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium max-w-2xl leading-relaxed">
-              Behavior & Systems Architect
+              AI Behavior & Orchestration Designer
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Designing probabilistic AI systems that are{" "}
-              <span className="text-foreground font-medium">transparent</span>,{" "}
-              <span className="text-foreground font-medium">steerable</span>, and{" "}
-              <span className="text-foreground font-medium">safe</span>.
+              I design AI products with measurable reliability, clear controls,
+              and auditable behavior in production.
             </p>
           </motion.div>
 

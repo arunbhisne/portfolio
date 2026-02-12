@@ -2,16 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { 
-  ExternalLink, 
   MessageSquare, 
   AlertTriangle, 
   Sparkles,
-  Github,
-  TrendingUp,
   Clock,
-  CheckCircle2,
   Plus
 } from "lucide-react";
 
@@ -31,8 +26,8 @@ const projects = [
     techStack: ["LangGraph", "Python", "FastAPI", "React"],
     tags: ["Orchestration", "HITL", "Observability"],
     accent: "from-blue-500/10 to-cyan-500/10 dark:from-blue-500/5 dark:to-cyan-500/5",
-    hasDemo: true,
-    hasRepo: true,
+    hasDemo: false,
+    hasRepo: false,
   },
   {
     icon: AlertTriangle,
@@ -50,7 +45,7 @@ const projects = [
     tags: ["Failure Design", "Trust Building", "UX Patterns"],
     accent: "from-amber-500/10 to-orange-500/10 dark:from-amber-500/5 dark:to-orange-500/5",
     hasDemo: false,
-    hasRepo: true,
+    hasRepo: false,
   },
   {
     icon: Sparkles,
@@ -67,8 +62,8 @@ const projects = [
     techStack: ["Vercel AI SDK", "TypeScript", "React", "Tailwind"],
     tags: ["Generative UI", "Streaming", "Memory"],
     accent: "from-purple-500/10 to-pink-500/10 dark:from-purple-500/5 dark:to-pink-500/5",
-    hasDemo: true,
-    hasRepo: true,
+    hasDemo: false,
+    hasRepo: false,
   },
 ];
 
@@ -170,25 +165,10 @@ export function ProjectsSection() {
                     </div>
                   </div>
 
-                  <div className="flex gap-2 pt-2">
-                    <Button 
-                      size="sm" 
-                      className="flex-1 text-xs"
-                      data-testid={`button-case-study-${index}`}
-                    >
-                      View Case Study
-                      <ExternalLink className="ml-1 h-3 w-3" />
-                    </Button>
-                    {project.hasRepo && (
-                      <Button 
-                        size="sm" 
-                        variant="outline"
-                        className="text-xs"
-                        data-testid={`button-github-${index}`}
-                      >
-                        <Github className="h-3 w-3" />
-                      </Button>
-                    )}
+                  <div className="pt-2">
+                    <Badge variant="outline" className="text-xs">
+                      Case Study Coming Soon
+                    </Badge>
                   </div>
                 </div>
               </Card>

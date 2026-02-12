@@ -38,7 +38,7 @@ const competencies = [
     icon: Shuffle,
     title: "Probabilistic Behavior & Failure Design",
     description:
-      "Designing for uncertainty, hallucinations, and failure modes. Building systems that degrade gracefully and maintain user trust even when AI outputs are unexpected.",
+      "Design uncertainty handling, fallback logic, and recovery behavior that keeps core tasks reliable under low confidence.",
     tags: ["Uncertainty Handling", "Failure Modes", "Graceful Degradation"],
     relatedProject: "projects",
   },
@@ -46,7 +46,7 @@ const competencies = [
     icon: GitBranch,
     title: "Orchestration & Agent Topologies",
     description:
-      "Multi-agent systems, router logic, autonomy matrices. Designing how AI agents coordinate, delegate, and escalate across complex workflows.",
+      "Define multi-agent routing, delegation, and escalation rules so complex workflows remain predictable and debuggable.",
     tags: ["Multi-Agent", "Router Logic", "Autonomy Matrices"],
     relatedProject: "projects",
   },
@@ -54,7 +54,7 @@ const competencies = [
     icon: FileCode,
     title: "System Prompting & Generative UI",
     description:
-      "Component ontologies, JSON schemas, machine-addressable design. Creating structured outputs that bridge natural language with deterministic interfaces.",
+      "Create prompt and schema contracts that turn open-ended intent into deterministic interface behavior.",
     tags: ["System Prompts", "JSON Schemas", "Component Ontologies"],
     relatedProject: "projects",
   },
@@ -62,7 +62,7 @@ const competencies = [
     icon: BarChart3,
     title: "Evaluation Design & Behavioral Metrics",
     description:
-      "Golden datasets, evals, LLM-as-a-Judge frameworks. Building measurement systems that track AI behavior quality beyond simple accuracy.",
+      "Build evaluation systems that track behavior quality, regression risk, and reliability beyond basic accuracy scores.",
     tags: ["Golden Datasets", "Evals", "LLM-as-Judge"],
     relatedProject: "projects",
   },
@@ -70,7 +70,7 @@ const competencies = [
     icon: Search,
     title: "Observability & Reasoning Traces",
     description:
-      "Glass Box UX, provenance, developer debugging interfaces. Making AI decision-making visible and auditable for both users and developers.",
+      "Design observability surfaces that explain AI decisions to users and accelerate debugging for product teams.",
     tags: ["Glass Box UX", "Provenance", "Debug Interfaces"],
     relatedProject: "projects",
   },
@@ -159,7 +159,7 @@ export function CompetenciesSection() {
                     className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors mt-2 opacity-0 group-hover:opacity-100"
                     data-testid={`link-see-project-${index}`}
                   >
-                    <span>See related work</span>
+                    <span>View related work</span>
                     <ArrowRight className="h-3 w-3" />
                   </button>
                 </div>

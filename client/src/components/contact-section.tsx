@@ -68,9 +68,8 @@ const currentlyLearning = [
 ];
 
 const targetRoles = [
-  "AI Product Designer",
-  "AI/ML UX Researcher",
-  "Agentic Systems Designer",
+  "AI-Native Designer",
+  "AI Product Designer (Agentic Systems)",
 ];
 
 const contactFormSchema = insertContactSchema.extend({
@@ -147,7 +146,7 @@ export function ContactSection() {
             Get in Touch
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-2xl" data-testid="text-contact-heading">
-            Let's build the future of human-AI interaction together
+            Open to AI-native product design roles
           </h2>
         </motion.div>
 
@@ -267,7 +266,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" />
-                  <span>Responds within 24 hours</span>
+                  <span>Open to full-time and contract opportunities</span>
                 </div>
               </div>
             </div>
@@ -318,7 +317,9 @@ export function ContactSection() {
                 ))}
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2" data-testid="text-opportunities-description">
-                <span className="shrink-0 mt-0.5">Open to remote opportunities globally</span>
+                <span className="shrink-0 mt-0.5">
+                  Open to remote and hybrid roles globally.
+                </span>
               </p>
             </div>
 

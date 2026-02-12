@@ -82,7 +82,7 @@ export function SkillsSection() {
             Skills Evolution
           </p>
           <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight max-w-2xl" data-testid="text-skills-heading">
-            From traditional UX to engineering-grade AI deliverables
+            From UX deliverables to production AI specifications
           </h2>
         </motion.div>
 
@@ -149,9 +149,9 @@ export function SkillsSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-8 text-sm text-muted-foreground max-w-xl"
         >
-          This evolution reflects the shift from designing static interfaces to
-          architecting autonomous systems that operate with probabilistic
-          behaviors and require engineering-grade specifications.
+          This progression reflects how I deliver deployable behavior specs,
+          orchestration logic, and evaluation requirements for production AI
+          systems.
         </motion.p>
       </div>
     </section>

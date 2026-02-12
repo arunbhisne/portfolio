@@ -71,7 +71,7 @@ export function Navigation() {
             className="font-display text-lg font-semibold tracking-tight"
             data-testid="link-logo"
           >
-            AB
+            Arun Bhisne
           </a>
 
           <div className="hidden md:flex items-center gap-1 flex-wrap">

@@ -99,7 +99,8 @@ export function ToolsSection() {
             Technologies I work with
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl">
-            From AI frameworks to design tools, a comprehensive stack for building production-grade AI systems.
+            Core tools I use to design, prototype, evaluate, and ship
+            production AI features.
           </p>
         </motion.div>
 

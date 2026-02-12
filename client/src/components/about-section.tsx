@@ -8,7 +8,7 @@ const highlights = [
   {
     icon: Brain,
     title: "Probabilistic Behaviors",
-    description: "Architect for uncertainty, not deterministic flows",
+    description: "Design uncertainty handling and recovery paths",
   },
   {
     icon: Layers,
@@ -18,7 +18,7 @@ const highlights = [
   {
     icon: Workflow,
     title: "System Prompts",
-    description: "Craft machine-addressable design systems",
+    description: "Define prompt and schema contracts for product behavior",
   },
   {
     icon: Eye,
@@ -50,24 +50,21 @@ export function AboutSection() {
               About
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight" data-testid="text-about-heading">
-              I design for what AI does when we're not looking
+              I design AI products that remain reliable under uncertainty
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I'm an AI-Native Product Designer — a behavior and systems
-                architect who designs probabilistic, agentic AI systems.
+                I'm an AI-Native Designer focused on behavior, orchestration,
+                and interface design for agentic products.
               </p>
               <p>
-                Unlike traditional UX designers who create static interfaces, I
-                architect autonomous systems by specifying system prompts, agent
-                topologies, evaluation frameworks, and generative UI schemas.
+                I define prompt contracts, routing logic, evaluation plans, and
+                generative UI schemas so teams can ship controllable AI
+                features.
               </p>
               <p>
-                My work makes AI systems{" "}
-                <span className="text-foreground font-medium">transparent</span>,{" "}
-                <span className="text-foreground font-medium">steerable</span>, and{" "}
-                <span className="text-foreground font-medium">safe</span> in
-                production.
+                My goal is simple: make AI systems transparent, steerable, and
+                safe enough to trust in production.
               </p>
             </div>
           </div>
@@ -102,12 +99,9 @@ export function AboutSection() {
           className="mt-16 pt-8 border-t border-border"
         >
           <p className="text-lg md:text-xl italic text-muted-foreground max-w-3xl">
-            "We're no longer designing for the machine—we're designing for what
-            the machine does when we're not looking."
+            I design for observable behavior, not optimistic prompts:
+            interactions must stay understandable when confidence is low.
           </p>
-          <cite className="mt-4 block text-sm text-muted-foreground not-italic">
-            — Robb Wilson, AI Systems Researcher
-          </cite>
         </motion.blockquote>
       </div>
     </section>

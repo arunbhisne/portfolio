@@ -67,7 +67,8 @@ export function RecognitionSection() {
             Continuous learning in AI systems design
           </h2>
           <p className="mt-4 text-muted-foreground max-w-xl">
-            Building expertise through formal education, certifications, and hands-on project work.
+            Ongoing learning and experiments that directly inform my product
+            decisions.
           </p>
         </motion.div>
 
