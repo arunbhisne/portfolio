@@ -22,7 +22,7 @@ export function AgentNetwork() {
   };
 
   return (
-    <div className="relative w-full h-48 md:h-64 mt-8" data-testid="agent-network-diagram">
+    <div className="relative w-full h-64 md:h-72 lg:h-80" data-testid="agent-network-diagram">
       <svg 
         viewBox="0 0 100 100" 
         className="w-full h-full"

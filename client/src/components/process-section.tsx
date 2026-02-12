@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   Target, 
@@ -28,8 +27,6 @@ const processSteps = [
       "Identify edge cases and ambiguous inputs",
       "Create intent classification taxonomies",
     ],
-    tools: ["Miro", "Figma", "User Research"],
-    duration: "Typical: 1-2 weeks",
     output: "Intent Specification Document",
   },
   {
@@ -44,8 +41,6 @@ const processSteps = [
       "Design escalation and handoff triggers",
       "Create autonomy matrices for human oversight",
     ],
-    tools: ["Whimsical", "LangGraph", "Mermaid"],
-    duration: "Typical: 2-3 weeks",
     output: "Agent Topology Diagram",
     hasLoop: true,
     loopTo: "01",
@@ -62,8 +57,6 @@ const processSteps = [
       "Create behavioral guidelines and guardrails",
       "Design fallback and error handling prompts",
     ],
-    tools: ["VS Code", "DSPy", "Promptfoo"],
-    duration: "Typical: 2-4 weeks",
     output: "System Prompt Library",
   },
   {
@@ -78,8 +71,6 @@ const processSteps = [
       "Implement LLM-as-Judge frameworks",
       "Set up regression testing pipelines",
     ],
-    tools: ["OpenAI Evals", "LangSmith", "Promptfoo"],
-    duration: "Typical: 1-2 weeks",
     output: "Evaluation Framework",
     hasLoop: true,
     loopTo: "01",
@@ -96,8 +87,6 @@ const processSteps = [
       "Build developer debugging dashboards",
       "Implement provenance tracking",
     ],
-    tools: ["LangSmith", "Weights & Biases", "React"],
-    duration: "Typical: 2-3 weeks",
     output: "Observability Dashboard",
   },
 ];
@@ -187,9 +176,6 @@ export function ProcessSection() {
                         <span className="font-mono text-xs text-muted-foreground">
                           {step.number}
                         </span>
-                        <Badge variant="secondary" className="text-[10px]">
-                          {step.duration}
-                        </Badge>
                       </div>
 
                       <h3 className="font-display font-semibold text-lg">
@@ -220,31 +206,13 @@ export function ProcessSection() {
                             </ul>
                           </div>
 
-                          <div className="flex flex-wrap gap-4">
-                            <div>
-                              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-                                Tools
-                              </p>
-                              <div className="flex flex-wrap gap-1.5">
-                                {step.tools.map((tool) => (
-                                  <span
-                                    key={tool}
-                                    className="px-2 py-1 text-xs font-mono bg-muted rounded-sm text-muted-foreground"
-                                  >
-                                    {tool}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div>
-                              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
-                                Output
-                              </p>
-                              <span className="text-sm text-foreground">
-                                {step.output}
-                              </span>
-                            </div>
+                          <div>
+                            <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-2">
+                              Output
+                            </p>
+                            <span className="text-sm text-foreground">
+                              {step.output}
+                            </span>
                           </div>
                         </motion.div>
                       )}
@@ -276,7 +244,7 @@ export function ProcessSection() {
             data-testid="button-download-framework"
             onClick={() =>
               window.open(
-                "mailto:hello@arunbhisne.com?subject=Process%20Framework%20Request",
+                "mailto:arun.bhisne@gmail.com?subject=Process%20Framework%20Request",
                 "_blank",
               )
             }

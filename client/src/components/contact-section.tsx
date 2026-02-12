@@ -31,21 +31,27 @@ import {
   Copy,
   Check
 } from "lucide-react";
-import { SiKaggle } from "react-icons/si";
+import { SiKaggle, SiMedium } from "react-icons/si";
 
 const socialLinks = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:hello@arunbhisne.com",
-    username: "hello@arunbhisne.com",
+    href: "mailto:arun.bhisne@gmail.com",
+    username: "arun.bhisne@gmail.com",
     copyable: true,
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/arunbhisne",
+    href: "https://www.linkedin.com/in/arunbhisne",
     username: "arunbhisne",
+  },
+  {
+    icon: SiMedium,
+    label: "Medium",
+    href: "https://medium.com/@arun.bhisne",
+    username: "@arun.bhisne",
   },
   {
     icon: Github,
@@ -119,7 +125,7 @@ export function ContactSection() {
   };
 
   const copyEmail = async () => {
-    await navigator.clipboard.writeText("hello@arunbhisne.com");
+    await navigator.clipboard.writeText("arun.bhisne@gmail.com");
     setCopiedEmail(true);
     toast({
       title: "Email copied!",
@@ -255,14 +261,16 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div className="flex items-start gap-4">
-              <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center shrink-0">
-                <span className="font-display text-2xl font-bold text-muted-foreground">AB</span>
-              </div>
+              <img
+                src="/profile-avatar.jpg"
+                alt="Arun Bhisne"
+                className="w-20 h-20 rounded-full object-cover border border-border shrink-0"
+              />
               <div className="space-y-2">
                 <h3 className="font-display font-semibold text-lg">Arun Bhisne</h3>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />
-                  <span>Basar, Telangana, India</span>
+                  <span>Hyderabad, Telangana, India</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" />
