@@ -45,11 +45,20 @@ export function Navigation() {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    const sectionId = href.replace("#", "");
+    const element = document.getElementById(sectionId);
+    if (!element) {
+      setIsMobileMenuOpen(false);
+      return;
     }
+
     setIsMobileMenuOpen(false);
+
+    // Offset scroll to keep section heading visible below fixed header.
+    window.setTimeout(() => {
+      const top = element.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }, 120);
   };
 
   return (

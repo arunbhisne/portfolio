@@ -93,7 +93,7 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.55, duration: 0.6 }}
-            className="rounded-2xl border border-border bg-card/50 p-4 md:p-6 lg:p-8"
+            className="p-2 md:p-4 lg:p-6"
           >
             <AgentNetwork />
           </motion.div>

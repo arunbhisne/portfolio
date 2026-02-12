@@ -33,6 +33,14 @@ import {
 } from "lucide-react";
 import { SiKaggle, SiMedium } from "react-icons/si";
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
+
 const socialLinks = [
   {
     icon: Mail,
@@ -68,8 +76,8 @@ const socialLinks = [
 ];
 
 const currentlyLearning = [
+  "Physical AI",
   "Multi-Agent Orchestration",
-  "LangGraph Patterns",
   "Evaluation Frameworks",
 ];
 
@@ -113,10 +121,10 @@ export function ContactSection() {
     },
     onError: () => {
       toast({
-        title: "Message received",
-        description: "Thanks for your interest! I'll be in touch soon.",
+        title: "Message failed",
+        description:
+          "Email delivery failed. Please try again or email arun.bhisne@gmail.com directly.",
       });
-      form.reset();
     },
   });
 
@@ -132,6 +140,43 @@ export function ContactSection() {
       description: "Email address copied to clipboard.",
     });
     setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const openCalendly = () => {
+    const calendlyUrl =
+      "https://calendly.com/arunbhisne/30min";
+    const scriptId = "calendly-widget-script";
+    const styleId = "calendly-widget-style";
+
+    const openPopup = () => {
+      if (window.Calendly?.initPopupWidget) {
+        window.Calendly.initPopupWidget({ url: calendlyUrl });
+      } else {
+        window.open(calendlyUrl, "_blank");
+      }
+    };
+
+    const existingScript = document.getElementById(scriptId);
+    if (existingScript) {
+      openPopup();
+      return;
+    }
+
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement("link");
+      style.id = styleId;
+      style.rel = "stylesheet";
+      style.href = "https://assets.calendly.com/assets/external/widget.css";
+      document.head.appendChild(style);
+    }
+
+    const script = document.createElement("script");
+    script.id = scriptId;
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = openPopup;
+    script.onerror = () => window.open(calendlyUrl, "_blank");
+    document.body.appendChild(script);
   };
 
   return (
@@ -245,7 +290,7 @@ export function ContactSection() {
               <Button
                 variant="outline"
                 className="font-display"
-                onClick={() => window.open("https://calendly.com/arunbhisne", "_blank")}
+                onClick={openCalendly}
                 data-testid="button-schedule-call"
               >
                 <Calendar className="mr-2 h-4 w-4" />
